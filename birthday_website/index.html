@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="backsound" loop>
+    <source src="backsound.mp3" type="audio/mpeg">
+</audio>
+
+<div class="confetti-container" id="confetti"></div>
+
+<div class="balloon balloon1">🎈</div>
+<div class="balloon balloon2">🎈</div>
+<div class="balloon balloon3">🎈</div>
+<div class="balloon balloon4">🎈</div>
+
+<div class="container">
+    <div class="card">
+        <div class="cake">🎂</div>
+
+        <h1>Happy Birthday!</h1>
+        <h2>🎉 Selamat Ulang Tahun 🎉</h2>
+
+        <div class="photo-container">
+            <div class="photo-placeholder">📸</div>
+        </div>
+
+        <p class="nama">Untuk </p>
+        <p> <b>RAZITA SASYA NADIRA</b> </p>
+
+        <p class="message">
+            Hari ini adalah hari spesial untukmu. 
+            <br><br>
+            Semoga bertambahnya usia membawa kebahagiaan,
+            kesehatan, kesuksesan, dan banyak hal indah dalam hidupmu.
+            <br><br>
+            Semoga semua impian dan harapanmu bisa menjadi kenyataan. ✨
+        </p>
+
+        <div class="gift-area">
+            <div class="gift" id="gift" onclick="openGift()">
+                <div class="gift-lid"></div>
+                <div class="gift-box"></div>
+                <div class="gift-ribbon"></div>
+            </div>
+            <p id="giftText">🎁 Klik kadonya!</p>
+        </div>
+
+        <div id="hiddenMessage">
+            <h3>🎊 Surprise! 🎊</h3>
+            <p>
+                Selamat ulang tahun! 🥳
+                <br>
+                Wish you all the best.
+                <br><br>
+                Semoga tahun ini menjadi salah satu tahun terbaik dalam hidup. Menjadi pribadi yang lebih baik dan dapat ketirima di PTN impian ✨
+            </p>
+        </div>
+
+        <button onclick="toggleMusic()" id="musicButton">🎵 Putar Musik</button>
+
+        <div class="footer">Made By A 54</div>
+    </div>
+</div>
+
+<script>
+const music = document.getElementById("backsound");
+const musicButton = document.getElementById("musicButton");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicButton.innerHTML = "🔇 Matikan Musik";
+    } else {
+        music.pause();
+        musicButton.innerHTML = "🎵 Putar Musik";
+    }
+}
+
+function openGift() {
+    const gift = document.getElementById("gift");
+    const message = document.getElementById("hiddenMessage");
+    const giftText = document.getElementById("giftText");
+
+    gift.classList.add("open");
+    message.style.display = "block";
+    giftText.innerHTML = "🎉 Surprise berhasil dibuka! 🎉";
+    createConfetti(100);
+}
+
+function createConfetti(amount) {
+    const container = document.getElementById("confetti");
+
+    for (let i = 0; i < amount; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "%";
+        confetti.style.animationDelay = Math.random() * 2 + "s";
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        container.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);
+    }
+}
+
+window.onload = () => createConfetti(40);
+</script>
+
+</body>
+</html>

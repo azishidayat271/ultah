@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #84fab0);
+    background-size: 400% 400%;
+    animation: backgroundMove 10s infinite alternate;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    z-index: 5;
+}
+
+.card {
+    max-width: 550px;
+    margin: auto;
+    padding: 40px 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    animation: cardAppear 1s ease;
+}
+
+.cake {
+    font-size: 75px;
+    animation: cakeBounce 2s infinite;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 48px;
+    background: linear-gradient(90deg, #ff4b8b, #ff9f1c, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    margin-top: 10px;
+    color: #ff4b8b;
+    font-size: 22px;
+}
+
+.photo-container {
+    width: 180px;
+    height: 180px;
+    margin: 25px auto;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(45deg, #ff4b8b, #ff9f1c, #8e44ad, #00c9ff);
+    animation: photoRotate 6s linear infinite;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: #fff0f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+.nama {
+    font-size: 21px;
+    color: #444;
+}
+
+.nama b {
+    color: #ff4b8b;
+}
+
+.message {
+    margin-top: 20px;
+    line-height: 1.7;
+    color: #555;
+    font-size: 16px;
+}
+
+.gift-area {
+    margin-top: 30px;
+}
+
+.gift {
+    position: relative;
+    width: 130px;
+    height: 120px;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.gift:hover {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.gift-box {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 110px;
+    height: 85px;
+    background: linear-gradient(135deg, #ff4b8b, #ff6fa3);
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 130px;
+    height: 30px;
+    background: linear-gradient(135deg, #ff9f1c, #ffcc70);
+    border-radius: 5px;
+    z-index: 2;
+    transition: 0.6s;
+}
+
+.gift-ribbon {
+    position: absolute;
+    left: 55px;
+    top: 20px;
+    width: 20px;
+    height: 100px;
+    background: #ffd700;
+    z-index: 3;
+}
+
+.gift.open .gift-lid {
+    transform: translateY(-60px) rotate(-10deg);
+}
+
+#giftText {
+    margin-top: 15px;
+    color: #ff4b8b;
+    font-weight: bold;
+}
+
+#hiddenMessage {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff0f6;
+    color: #ff4b8b;
+    line-height: 1.7;
+    animation: messageAppear 0.8s ease;
+}
+
+#hiddenMessage h3 {
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff4b8b, #ff9f1c);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 75, 139, 0.3);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.balloon {
+    position: fixed;
+    font-size: 60px;
+    z-index: 1;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.balloon1 { top: 5%; left: 5%; }
+.balloon2 { top: 15%; right: 5%; animation-delay: 1s; }
+.balloon3 { bottom: 10%; left: 8%; animation-delay: 2s; }
+.balloon4 { bottom: 5%; right: 10%; animation-delay: 1.5s; }
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.confetti {
+    position: absolute;
+    top: -20px;
+    width: 10px;
+    height: 20px;
+    background: #ff4b8b;
+    animation: fall linear forwards;
+}
+
+.confetti:nth-child(3n) { background: #ffcc00; }
+.confetti:nth-child(3n+1) { background: #00c9ff; }
+.confetti:nth-child(3n+2) { background: #8e44ad; }
+
+.footer {
+    margin-top: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(50px) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes photoRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes messageAppear {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fall {
+    from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 15px; }
+    .card { padding: 30px 20px; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 18px; }
+    .photo-container { width: 150px; height: 150px; }
+    .balloon { font-size: 40px; }
+}
